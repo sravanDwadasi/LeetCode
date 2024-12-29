@@ -23,7 +23,7 @@ class Solution {
 
 ```
 
-### 2 valid Anagram
+### 2. Valid Anagram
 - **EASY**
 ```
 class Solution {
@@ -40,7 +40,7 @@ class Solution {
 
 ```
 
-### 3 Contains Duplicate
+### 3. Contains Duplicate
 - **EASY**
 ```
 import java.util.Arrays;
@@ -57,4 +57,20 @@ public class ContainsDuplicate {
 }
 
 
+```
+
+### 4. Concatenation of Array
+- **EASY**
+```
+class ConcatenationofArray {
+    public int[] getConcatenation(int[] nums) {
+        int n = nums.length;
+        int[] ans = new int[2*n];
+        for(int i = 0; i < n; i++){
+            ans[i] = nums[i];
+            ans[i + n] = nums[i];
+        }
+        return ans;
+    }
+}
 ```
