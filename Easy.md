@@ -22,6 +22,8 @@ class Solution {
 }
 
 ```
+## Day - 2 : 29-12-2024
+
 
 ### 2. Valid Anagram
 - **EASY**
