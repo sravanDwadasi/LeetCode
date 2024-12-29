@@ -23,7 +23,7 @@ class Solution {
 
 ```
 
-### 1. valid Anagram
+### 2 valid Anagram
 - **EASY**
 ```
 class Solution {
@@ -37,5 +37,24 @@ class Solution {
         return Arrays.equals(charS, charT);
     }
 }
+
+```
+
+### 3 Contains Duplicate
+- **EASY**
+```
+import java.util.Arrays;
+public class ContainsDuplicate {
+     public boolean containsDuplicate(int[] nums) {
+        Arrays.sort(nums);
+        for(int i = 0; i < nums.length-1; i++){
+            if(nums[i] == nums[i+1]){
+                return true;
+            }
+        }
+        return false;
+    }
+}
+
 
 ```
