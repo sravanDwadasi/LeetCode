@@ -3,7 +3,7 @@
 ## Day - 2 : 29-12-2024
 
 ### 1. Replace Elements with Greatest Element on Right Side
-- **Medium**
+- **MEDIUM**
 
 ```
 public class ReplaceElementswithGreatestElementonRightSide {
@@ -22,7 +22,7 @@ public class ReplaceElementswithGreatestElementonRightSide {
 ```
 
 ### 2. Single Element in a Sorted Array
-- **Medium**
+- **MEDIUM**
 
 ```
 class SingleElementInASortedArray {
