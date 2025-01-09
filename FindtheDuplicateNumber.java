@@ -1,5 +1,5 @@
 public class FindtheDuplicateNumber {
-    class Solution {
+
         public void swap(int[] arr, int first, int second){
             int temp = arr[first];
             arr[first] = arr[second];
@@ -21,5 +21,4 @@ public class FindtheDuplicateNumber {
             }
             return nums[nums.length-1];
         }
-    }
 }
