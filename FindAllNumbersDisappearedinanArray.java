@@ -2,7 +2,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FindAllNumbersDisappearedinanArray {
-    class Solution {
     public void swap(int[] arr, int first, int second){
         int temp = arr[first];
         arr[first] = arr[second];
@@ -27,4 +26,4 @@ public class FindAllNumbersDisappearedinanArray {
         return arr;
     }
 }
-}
+

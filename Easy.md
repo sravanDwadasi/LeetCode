@@ -262,28 +262,32 @@ class Solution {
 ### 13. Find All Numbers Disappeared in an Array
 - **EASY**
 ```
-class Solution {
-    public int missingNumber(int[] nums) {
-        sort(nums);
-        for(int i = 0; i < nums.length; i++){
-            if(i != nums[i]){
-                return i;
-            }
-        }
-        return nums.length;
+import java.util.ArrayList;
+import java.util.List;
+
+public class FindAllNumbersDisappearedinanArray {
+    public void swap(int[] arr, int first, int second){
+        int temp = arr[first];
+        arr[first] = arr[second];
+        arr[second] = temp;
     }
-    public void sort(int[] nums){
+
+    public List<Integer> findDisappearedNumbers(int[] nums) {
         int i = 0;
         while(i < nums.length){
-            int correct = nums[i];
-            if(nums[i] < nums.length && nums[i] != nums[correct]){
-                int temp = nums[i];
-                nums[i] = nums[correct];
-                nums[correct] = temp;
-            }else{
-                i++;
-            }
+            int correct = nums[i] - 1;
+            if(nums[i] != nums[correct]){
+               swap(nums, i, correct);
+            }else i++;
         } 
+
+        List<Integer> arr = new ArrayList<>();
+        for(int j = 0; j < nums.length; j++){
+            if(j+1 != nums[j]){
+                arr.add(j+1);
+            }
+        }
+        return arr;
     }
 }
 
