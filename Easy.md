@@ -296,34 +296,30 @@ public class FindAllNumbersDisappearedinanArray {
 ### 14. Set Mismatch
 - **EASY**
 ```
-import java.util.ArrayList;
-import java.util.List;
-
-public class FindAllNumbersDisappearedinanArray {
-    public void swap(int[] arr, int first, int second){
-        int temp = arr[first];
-        arr[first] = arr[second];
-        arr[second] = temp;
-    }
-
-    public List<Integer> findDisappearedNumbers(int[] nums) {
-        int i = 0;
-        while(i < nums.length){
-            int correct = nums[i] - 1;
-            if(nums[i] != nums[correct]){
-               swap(nums, i, correct);
-            }else i++;
-        } 
-
-        List<Integer> arr = new ArrayList<>();
-        for(int j = 0; j < nums.length; j++){
-            if(j+1 != nums[j]){
-                arr.add(j+1);
+public class SetMismatch {
+        public int[] findErrorNums(int[] nums) {
+            int[] arr = new int[2];
+            int i = 0;
+             int l = nums.length;
+            while(i < l){
+                int correct = nums[i] - 1;
+                if(nums[i] <= l && nums[i] != nums[correct]){
+                    int temp = nums[i];
+                    nums[i] = nums[correct];
+                    nums[correct] = temp;
+                }else{
+                    i++;
+                }
+            } 
+            for(int j = 0; j < l; j++){
+                if(nums[j] - 1 != j){
+                    arr[0] = nums[j];
+                    arr[1] = j + 1;
+                    break;
+                } 
             }
+            return arr;
         }
-        return arr;
-    }
 }
-
 
 ```
