@@ -327,30 +327,22 @@ public class SetMismatch {
 ### 15. Find Numbers with Even Number of Digits
 - **EASY**
 ```
-public class SetMismatch {
-        public int[] findErrorNums(int[] nums) {
-            int[] arr = new int[2];
-            int i = 0;
-             int l = nums.length;
-            while(i < l){
-                int correct = nums[i] - 1;
-                if(nums[i] <= l && nums[i] != nums[correct]){
-                    int temp = nums[i];
-                    nums[i] = nums[correct];
-                    nums[correct] = temp;
-                }else{
-                    i++;
+public class FindNumberswithEvenNumberofDigits {
+        public int findNumbers(int[] nums) {
+            int count = 0;
+            for(int i = 0; i < nums.length; i++){
+                int temp = 0;
+                int n = nums[i];
+                while(n != 0){
+                    n = n/10;
+                    temp++;
                 }
-            } 
-            for(int j = 0; j < l; j++){
-                if(nums[j] - 1 != j){
-                    arr[0] = nums[j];
-                    arr[1] = j + 1;
-                    break;
-                } 
+                if(temp%2 == 0){
+                    count++;
+                }
             }
-            return arr;
+            return count;
         }
-}
+    }
 
 ```
