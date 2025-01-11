@@ -371,20 +371,19 @@ class Solution {
 ### 17. Find Smallest Letter Greater Than Target
 - **EASY**
 ```
-class Solution {
-    public int maximumWealth(int[][] accounts) {
-        int ans = 0;
-        for(int i = 0; i < accounts.length; i++){
-            int sum = 0;
-            for(int j = 0; j < accounts[i].length; j++){
-                sum = sum + accounts[i][j];
+public class FindSmallestLetterGreaterThanTarget {
+        public char nextGreatestLetter(char[] letters, char target) {
+            int start = 0;
+            int end = letters.length - 1;
+    
+            while(start <= end){
+                int mid = (start + end)/2;
+    
+                if(letters[mid] <= target) start = mid + 1;
+                else end = mid - 1;
             }
-            if(sum > ans){
-                ans = sum;
-            }
+            return letters[start % letters.length];
         }
-        return ans;
     }
-}
 
 ```
