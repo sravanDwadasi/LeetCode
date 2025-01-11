@@ -350,22 +350,20 @@ public class FindNumberswithEvenNumberofDigits {
 ### 16. Richest Customer Wealth
 - **EASY**
 ```
-public class FindNumberswithEvenNumberofDigits {
-        public int findNumbers(int[] nums) {
-            int count = 0;
-            for(int i = 0; i < nums.length; i++){
-                int temp = 0;
-                int n = nums[i];
-                while(n != 0){
-                    n = n/10;
-                    temp++;
-                }
-                if(temp%2 == 0){
-                    count++;
-                }
+class Solution {
+    public int maximumWealth(int[][] accounts) {
+        int ans = 0;
+        for(int i = 0; i < accounts.length; i++){
+            int sum = 0;
+            for(int j = 0; j < accounts[i].length; j++){
+                sum = sum + accounts[i][j];
             }
-            return count;
+            if(sum > ans){
+                ans = sum;
+            }
         }
+        return ans;
     }
+}
 
 ```
