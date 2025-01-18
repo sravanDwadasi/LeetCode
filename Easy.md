@@ -411,19 +411,34 @@ public class FindSmallestLetterGreaterThanTarget {
 ### 19. Merge Sorted Array
 - **EASY**
 ```
-public class FindSmallestLetterGreaterThanTarget {
-        public char nextGreatestLetter(char[] letters, char target) {
-            int start = 0;
-            int end = letters.length - 1;
+public class MergeSortedArray {
+        public void merge(int[] nums1, int m, int[] nums2, int n) {
+            int index = (m + n) - 1;
+            int i = m -1;
+            int j = n-1;
     
-            while(start <= end){
-                int mid = (start + end)/2;
-    
-                if(letters[mid] <= target) start = mid + 1;
-                else end = mid - 1;
+            while(i >=0 && j >=0){
+                if(nums1[i] > nums2[j]){
+                    nums1[index] = nums1[i];
+                    i--;
+                }else if(nums1[i] <= nums2[j]){
+                    nums1[index] = nums2[j];
+                    j--;
+                }
+                index--;
             }
-            return letters[start % letters.length];
+    
+            while(i>=0){
+                nums1[index] = nums1[i];
+                i--;
+                index--;
+            }
+            while(j>=0){
+                nums1[index] = nums2[j];
+                j--;
+                index--;
+            }
         }
-    }
+}
     
 ```
