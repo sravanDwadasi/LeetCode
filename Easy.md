@@ -464,16 +464,20 @@ public class BestTimetoBuyandSellStock {
 ### 21. Move Zeroes
 - **EASY**
 ```
-public class BestTimetoBuyandSellStock {
-        public int maxProfit(int[] prices) {
-            int minPrice = Integer.MAX_VALUE;
-            int maxPrice = 0;
+public class MoveZeroes {
+        public void moveZeroes(int[] nums) {
+            int i = 0;
+            int temp = 0;
     
-            for(int currentPrice : prices){
-                minPrice = Math.min(currentPrice, minPrice);
-                maxPrice = Math.max(maxPrice, currentPrice - minPrice);
+            while(i < nums.length){
+                if(nums[i] != 0){
+                    nums[temp++] = nums[i]; 
+                }
+                i++;
             }
-            return maxPrice;
+            while(temp < nums.length){
+                nums[temp++] = 0;
+            }
         }
     }
     
