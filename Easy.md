@@ -528,10 +528,16 @@ public class MajorityElement {
 ```
 import java.util.Arrays;
 
-public class MajorityElement {
-    public int majorityElement(int[] nums) {
+class SingleNumber {
+    public int singleNumber(int[] nums) {
         Arrays.sort(nums);
-        return nums[nums.length/2];
+        int n = nums.length;
+        if(n == 1) return nums[0];
+
+        for(int i = 0; i < n-1; i+=2){
+           if(nums[i] != nums[i+1]) return nums[i];
+        }
+        return nums[n-1];
     }
 }
     
