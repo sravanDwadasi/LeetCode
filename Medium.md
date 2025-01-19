@@ -182,32 +182,26 @@ public class FindAllDuplicatesinanArray {
 - **MEDIUM**
 
 ```
-import java.util.ArrayList;
-import java.util.List;
+class Solution {
+    public int search(int[] nums, int target) {
+        int start = 0, end = nums.length - 1;
 
-public class FindAllDuplicatesinanArray {
-    public void swap(int[] arr, int first, int second){
-        int temp = arr[first];
-        arr[first] = arr[second];
-        arr[second] = temp;
-    }
+        while (start <= end) {
+            int mid = (start + end) / 2;
 
-    public List<Integer> findDuplicates(int[] nums) {
-        int i = 0;
-        while(i < nums.length){
-            int correct = nums[i] - 1;
-            if(nums[i] != nums[correct]){
-               swap(nums, i, correct);
-            }else i++;
-        } 
+            if (nums[mid] == target) return mid;
 
-        List<Integer> arr = new ArrayList<>();
-        for(int j = 0; j < nums.length; j++){
-            if(j+1 != nums[j]){
-                arr.add(nums[j]);
+            if (nums[start] <= nums[mid]) {
+                if (nums[start] <= target && target < nums[mid]) end = mid - 1;
+                else start = mid + 1;
+            } 
+            else {
+                if (nums[mid] < target && target <= nums[end]) start = mid + 1;
+                else end = mid - 1;
             }
         }
-        return arr;
+
+        return -1;
     }
 }
 
