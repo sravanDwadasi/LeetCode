@@ -522,3 +522,17 @@ public class MajorityElement {
 }
     
 ```
+
+### 24. Single Number
+- **EASY**
+```
+import java.util.Arrays;
+
+public class MajorityElement {
+    public int majorityElement(int[] nums) {
+        Arrays.sort(nums);
+        return nums[nums.length/2];
+    }
+}
+    
+```
