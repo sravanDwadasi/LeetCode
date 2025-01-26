@@ -546,18 +546,30 @@ class SingleNumber {
 ### 25. Baseball Game
 - **EASY**
 ```
-import java.util.Arrays;
+import java.util.Stack;
 
-class SingleNumber {
-    public int singleNumber(int[] nums) {
-        Arrays.sort(nums);
-        int n = nums.length;
-        if(n == 1) return nums[0];
+class BaseballGame {
+    public int calPoints(String[] operations) {
+        Stack<Integer> stack = new Stack<>();
 
-        for(int i = 0; i < n-1; i+=2){
-           if(nums[i] != nums[i+1]) return nums[i];
+        for (String str : operations) {
+            switch (str) {
+                case "C" -> stack.pop();
+                case "D" -> stack.push(stack.peek() * 2);
+                case "+" -> {
+                    int last = stack.pop();
+                    int temp = stack.peek() + last;
+                    stack.push(last);
+                    stack.push(temp);
+                }
+                default -> stack.push(Integer.valueOf(str));
+            }
         }
-        return nums[n-1];
+        int sum = 0;
+        while(!stack.isEmpty()){
+            sum += stack.pop();
+        }
+        return sum;
     }
 }
     
